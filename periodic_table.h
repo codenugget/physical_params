@@ -8,13 +8,12 @@ extern "C" {
 
 static const double cKelvinToCelcius = 273.15;
 static const double cCelciusToKelvin = -273.15;
-inline double kelvin_to_celcius(const double K) { return K + cKelvinToCelcius; }
-inline double celcius_to_kelvin(const double C) { return C + cCelciusToKelvin; }
+static double kelvin_to_celcius(const double K) { return K + cKelvinToCelcius; }
+static double celcius_to_kelvin(const double C) { return C + cCelciusToKelvin; }
 
 static const double cUnknownTemperature = -1000.0; // TODO: fix a better solution than this
 
 // TODO:
-//    add block
 //    add electrons per shell
 //    add atomic radius
 //    add covalent radius
