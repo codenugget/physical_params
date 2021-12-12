@@ -21,7 +21,6 @@ static const double cUnknownTemperature = -1000.0; // TODO: fix a better solutio
 //    densities can vary in different forms, and some densities are unknown but have predicted values
 //    ionization energy have several different values (up to 30) revisit the values...
 //    add isotopes to separate table?
-//    remove special? I don't know what it is
 typedef struct PeriodicElement
 {
     int         number;
@@ -29,15 +28,15 @@ typedef struct PeriodicElement
     int         period;
     double      atomic_weight;          // amu (g / mol)
     double      density;                // g / cm3
-    double      melting_point;          // Celcius
-    double      boiling_point;          // Celcius
+    double      melting_point;          // C
+    double      boiling_point;          // C
     double      ionization_energy;      // eV
     double      earth_abundance;        // %
     const char* block;                  // s-, f-, d- or p-block
     const char* name;
     const char* symbol;
     const char* electron_configuration;
-    const char* special;
+    const char* special;                // remove special? I don't know what it is
 } PeriodicElement;
 
 #ifndef PERIODIC_TABLE_IMPLEMENTATION
@@ -45,7 +44,7 @@ extern PeriodicElement periodic_table[];
 #else
 PeriodicElement periodic_table[] =
 {
-    //num, group, period,   weigth, density,       melting point,   boiling point,        ion,  abund, block,            name,symbol, electron config,           special
+    //num, group, period,   weigth, density,       melting point,       boiling point,    ion,  abund, block,            name,symbol, electron config,           special
     {   1,     1,      1,    1.008,    0.09,                -259,                -253,  13.60,   0.14,   "s", "Hydrogen"     ,  "H" ,  "1s1"                   ,  ""  },
     {   2,    18,      1,    4.003,    0.18,                -272,                -269,  24.59,      0,   "s", "Helium"       ,  "He",  "1s2"                   ,  ""  },
     {   3,     1,      2,    6.941,    0.53,                 180,                1347,   5.39,      0,   "s", "Lithium"      ,  "Li",  "[He] 2s1"              ,  ""  },
@@ -85,7 +84,7 @@ PeriodicElement periodic_table[] =
     {  37,     1,      5,   85.468,    1.63,                  39,                 688,   4.18,      0,   "s", "Rubidium"     ,  "Rb",  "[Kr] 5s1"              ,  ""  },
     {  38,     2,      5,   87.620,    2.54,                 769,                1384,   5.69,      0,   "s", "Strontium"    ,  "Sr",  "[Kr] 5s2"              ,  ""  },
     {  39,     3,      5,   88.906,    4.47,                1523,                3337,   6.22,      0,   "d", "Yttrium"      ,  "Y" ,  "[Kr] 4d1 5s2"          ,  ""  },
-    //num, group, period,   weigth, density,       melting point,   boiling point,        ion,  abund, block,            name,symbol, electron config,           special
+    //num, group, period,   weigth, density,       melting point,       boiling point,    ion,  abund, block,            name,symbol, electron config,           special
     {  40,     4,      5,   91.224,    6.51,                1852,                4377,   6.63,   0.03,   "d", "Zirconium"    ,  "Zr",  "[Kr] 4d2 5s2"          ,  ""  },
     {  41,     5,      5,   92.906,    8.57,                2468,                4927,   6.76,      0,   "d", "Niobium"      ,  "Nb",  "[Kr] 4d4 5s1"          ,  ""  },
     {  42,     6,      5,   95.940,   10.22,                2617,                4612,   7.09,      0,   "d", "Molybdenum"   ,  "Mo",  "[Kr] 4d5 5s1"          ,  ""  },
@@ -126,7 +125,7 @@ PeriodicElement periodic_table[] =
     {  77,     9,      6,  192.217,   22.40,                2410,                4527,   8.97,      0,   "d", "Iridium"      ,  "Ir",  "[Xe] 4f14 5d7 6s2"     ,  ""  },
     {  78,    10,      6,  195.078,   21.45,                1772,                3827,   8.96,      0,   "d", "Platinum"     ,  "Pt",  "[Xe] 4f14 5d9 6s1"     ,  ""  },
     {  79,    11,      6,  196.967,   19.32,                1064,                2807,   9.23,      0,   "d", "Gold"         ,  "Au",  "[Xe] 4f14 5d10 6s1"    ,  ""  },
-    //num, group, period,   weigth, density,       melting point,   boiling point,        ion,  abund, block,            name,symbol, electron config,           special
+    //num, group, period,   weigth, density,       melting point,       boiling point,    ion,  abund, block,            name,symbol, electron config,           special
     {  80,    12,      6,  200.590,   13.55,                 -39,                 357,  10.44,      0,   "d", "Mercury"      ,  "Hg",  "[Xe] 4f14 5d10 6s2"    ,  ""  },
     {  81,    13,      6,  204.383,   11.85,                 303,                1457,   6.11,      0,   "p", "Thallium"     ,  "Tl",  "[Xe] 4f14 5d10 6s2 6p1",  ""  },
     {  82,    14,      6,  207.200,   11.35,                 327,                1740,   7.42,      0,   "p", "Lead"         ,  "Pb",  "[Xe] 4f14 5d10 6s2 6p2",  ""  },
@@ -157,7 +156,7 @@ PeriodicElement periodic_table[] =
     { 107,     7,      7,  264.000,   26.50, cUnknownTemperature, cUnknownTemperature,   0.00,      0,   "d", "Bohrium"      ,  "Bh",  ""                      ,  "*" },
     { 108,     8,      7,  277.000,   28.00, cUnknownTemperature, cUnknownTemperature,   0.00,      0,   "d", "Hassium"      ,  "Hs",  ""                      ,  "*" },
     { 109,     9,      7,  268.000,   27.50, cUnknownTemperature, cUnknownTemperature,   0.00,      0,   "d", "Meitnerium"   ,  "Mt",  ""                      ,  "*" },
-    //num, group, period,   weigth, density,       melting point,   boiling point,        ion,  abund, block,            name,symbol, electron config,           special
+    //num, group, period,   weigth, density,       melting point,       boiling point,    ion,  abund, block,            name,symbol, electron config,           special
     { 110,    10,      7,  281.000,   26.50, cUnknownTemperature, cUnknownTemperature,   0.00,      0,   "d", "Darnstadtium" ,  "Ds",  "[Rn] 5f14 6d8 7s2"     ,  ""  },
     { 111,    11,      7,  282.000,   23.00, cUnknownTemperature, cUnknownTemperature,   0.00,      0,   "d", "Roentgenium"  ,  "Rg",  "[Rn] 5f14 6d9 7s2"     ,  ""  },
     { 112,    12,      7,  285.000,   14.00,                9.85,               66.85,   0.00,      0,   "d", "Copernicium"  ,  "Cn",  "[Rn] 5f14 6d10 7s2"    ,  ""  },
