@@ -6,8 +6,8 @@
 extern "C" {
 #endif
 
-static const double cKelvinToCelcius = 273.15;
-static const double cCelciusToKelvin = -273.15;
+static const double cKelvinToCelcius = -273.15;
+static const double cCelciusToKelvin = 273.15;
 static double kelvin_to_celcius(const double K) { return K + cKelvinToCelcius; }
 static double celcius_to_kelvin(const double C) { return C + cCelciusToKelvin; }
 
