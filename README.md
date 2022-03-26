@@ -1,4 +1,6 @@
-# Physical Params
+# Physical Parameters
+
+Right now I only have one file for the periodic table entries of the atoms.
 
 ## periodic_table.h
 This simple header file was added to get easier access the periodic table parameters of the known atoms.
@@ -24,7 +26,7 @@ int main(int argc, char** argv) {
 #include <stdio.h>
 #include "periodic_table.h"
 
-int foo() {
+void foo() {
 	printf("Atomic weight of %s is %f\n", periodic_table[PT_LEAD].name, periodic_table[PT_LEAD].atomic_weight);
 }
 ```
