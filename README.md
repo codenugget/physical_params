@@ -8,7 +8,7 @@ This header file was added to get access to some of the periodic table parameter
 Please note that some of the data only partially covers the subject. The real data is more complex.
 I have skipped to include data covering the isotopes of the atoms.
 <br />
-The parameters you can access from the struct ```PeriodicElement``` are:
+The parameters you can access from the struct PeriodicElement are:
 * Atomic Number
 * Group
 * Period
@@ -25,7 +25,7 @@ The parameters you can access from the struct ```PeriodicElement``` are:
 * Extended Information (Called 'special', contains a semi-colon separated list of known attributes, i.e. "nonmetal;reactive;chalcogen" for Oxygen)
 
 <br />
-If you want to use this header file you need to define the flag ```PERIODIC_TABLE_IMPLEMENTATION``` as follows in **ONE** C or C++ implementation file in your project.
+If you want to use this header file you need to define the flag PERIODIC\_TABLE\_IMPLEMENTATION as follows in **ONE** C or C++ implementation file in your project.
 A good example would be in i.e. main.c or main.cpp
 In other project files you should only include the header file without the define statement.
 
