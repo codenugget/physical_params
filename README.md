@@ -26,8 +26,7 @@ The parameters you can access from the struct PeriodicElement are:
 
 <br />
 If you want to use this header file you need to define the flag PERIODIC_TABLE_IMPLEMENTATION as follows in ONE C or C++ implementation file in your project.
-A good example would be in i.e. main.c or main.cpp
-In other project files you should only include the header file without the define statement.
+A good example would be in i.e. main.c or main.cpp.
 
 ### main.c ###
 ```C
@@ -41,6 +40,7 @@ int main(int argc, char** argv) {
 }
 ```
 
+In other project files you should only include the header file without the define statement.
 ### other.c ###
 ```C
 #include <stdio.h>
